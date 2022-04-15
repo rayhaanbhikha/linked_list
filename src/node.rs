@@ -6,7 +6,7 @@ where
     T: Display,
 {
     value: T,
-    pub next: Option<Box<Node<T>>>,
+    next: Option<Box<Node<T>>>,
 }
 
 impl<T> Node<T>
@@ -63,5 +63,9 @@ where
         } else {
             self.next = Some(Box::new(new_node));
         }
+    }
+
+    pub fn get_next(&self) -> Option<&Box<Node<T>>> {
+        self.next.as_ref()
     }
 }

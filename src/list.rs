@@ -32,7 +32,7 @@ where
     }
 
     pub fn iter<'a>(&'a self) -> ListPermutation<'a, T> {
-        ListPermutation::new(self.start.next.as_ref())
+        ListPermutation::new(self.start.get_next())
     }
 }
 
