@@ -65,25 +65,3 @@ where
         }
     }
 }
-
-// // TODO: not sure about this.
-// impl<T> Display for Node<T>
-// where
-//     T: Display,
-// {
-//     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-//         writeln!(f, "{}", &self.value)?;
-//         let mut current_node = self.next.as_ref();
-
-//         loop {
-//             if let Some(n) = current_node {
-//                 writeln!(f, "{}", n.value)?;
-//                 current_node = n.next.as_ref();
-//             } else {
-//                 break;
-//             }
-//         }
-
-//         Ok(())
-//     }
-// }
