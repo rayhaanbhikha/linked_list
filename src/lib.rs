@@ -1,5 +1,5 @@
-mod list;
-mod list_permutation;
+pub mod list;
+pub mod list_permutation;
 mod node;
 
 #[cfg(test)]
