@@ -41,12 +41,8 @@ where
     fn delete_node(&mut self, index: usize, current_index: usize) {
         if index == (current_index + 1) {
             // take ownership of the next node (node that will be deleted).
-            let node_to_delete = std::mem::take(&mut self.next);
-
-            if let Some(n) = node_to_delete {
-                self.next = n.next;
-            } else {
-                self.next = None;
+            if let Some(node_to_delete) = std::mem::take(&mut self.next) {
+                self.next = node_to_delete.next;
             }
         } else if let Some(next_node) = &mut self.next {
             next_node.delete_node(index, current_index + 1)
