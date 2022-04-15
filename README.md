@@ -19,5 +19,9 @@ fn main() {
     println!("{:?}", list.get(1)); // Some("A")
     
     println!("{}", list); // S -> A ->
+
+    for val in list.iter() {
+        println!("{}", val)
+    }
 }
 ```
