@@ -1,6 +1,6 @@
 use std::fmt::Display;
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct Node<T>
 where
     T: Display,

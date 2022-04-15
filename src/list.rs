@@ -2,6 +2,7 @@ use crate::list_permutation::ListPermutation;
 use crate::node::Node;
 use std::fmt::Display;
 
+#[derive(Debug)]
 pub struct List<T>
 where
     T: Display + Default,
