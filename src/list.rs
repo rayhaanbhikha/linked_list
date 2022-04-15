@@ -15,8 +15,9 @@ where
     T: Display + Default,
 {
     pub fn new() -> Self {
-        let dummy_node = Node::new(Default::default());
-        Self { start: dummy_node }
+        Self {
+            start: Node::new(Default::default()),
+        }
     }
 
     pub fn get(&self, index: usize) -> Option<&T> {
