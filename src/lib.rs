@@ -53,12 +53,20 @@ mod tests {
 
     #[test]
     fn iterate_over_list() {
-        let chars = &["a", "b", "c", "d"];
-        let list = generate_list(chars);
+        let chars = vec!["a", "b", "c", "d"];
+        let list = generate_list(&chars);
+        let mut iterator = list.iter();
 
-        for (index, val) in list.iter().enumerate() {
-            let expected_char = unsafe { *chars.get_unchecked(index) };
-            assert_eq!(val, expected_char)
+        for char in chars.iter() {
+            let x = Some((*char).to_owned());
+            assert_eq!(iterator.next(), x.as_ref())
         }
+    }
+
+    #[test]
+    fn print_expected_list() {
+        let list = generate_list(&["a", "b", "c", "d"]);
+
+        assert_eq!(format!("{}", list), "a -> b -> c -> d -> ")
     }
 }

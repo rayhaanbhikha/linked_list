@@ -34,3 +34,15 @@ where
         ListPermutation::new(self.start.next.as_ref())
     }
 }
+
+impl<T> Display for List<T>
+where
+    T: Display + Default,
+{
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        for val in self.iter() {
+            write!(f, "{} -> ", val)?
+        }
+        Ok(())
+    }
+}

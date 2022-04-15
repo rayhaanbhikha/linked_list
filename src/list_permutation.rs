@@ -28,13 +28,9 @@ where
 
     fn next(&mut self) -> Option<Self::Item> {
         if let Some(current_node) = &self.current_node {
-            if let Some(next_node) = &current_node.next {
-                let val = current_node.get_val();
-                self.current_node = Some(next_node);
-                Some(val)
-            } else {
-                None
-            }
+            let val = current_node.get_val();
+            self.current_node = current_node.next.as_ref();
+            Some(val)
         } else {
             None
         }
