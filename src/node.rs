@@ -6,7 +6,7 @@ where
     T: Display,
 {
     value: T,
-    next: Option<Box<Node<T>>>,
+    pub next: Option<Box<Node<T>>>,
 }
 
 impl<T> Node<T>
@@ -18,6 +18,10 @@ where
             value: val,
             next: None,
         }
+    }
+
+    pub fn get_val(&self) -> &T {
+        &self.value
     }
 
     pub fn get(&self, index: usize) -> Option<&T> {
@@ -62,24 +66,24 @@ where
     }
 }
 
-// TODO: not sure about this.
-impl<T> Display for Node<T>
-where
-    T: Display,
-{
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        writeln!(f, "{}", &self.value)?;
-        let mut current_node = self.next.as_ref();
+// // TODO: not sure about this.
+// impl<T> Display for Node<T>
+// where
+//     T: Display,
+// {
+//     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+//         writeln!(f, "{}", &self.value)?;
+//         let mut current_node = self.next.as_ref();
 
-        loop {
-            if let Some(n) = current_node {
-                writeln!(f, "{}", n.value)?;
-                current_node = n.next.as_ref();
-            } else {
-                break;
-            }
-        }
+//         loop {
+//             if let Some(n) = current_node {
+//                 writeln!(f, "{}", n.value)?;
+//                 current_node = n.next.as_ref();
+//             } else {
+//                 break;
+//             }
+//         }
 
-        Ok(())
-    }
-}
+//         Ok(())
+//     }
+// }
